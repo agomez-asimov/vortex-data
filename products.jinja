@@ -1,0 +1,15 @@
+{
+    "total": {{ result.length }},
+    "count": {{ result.rows }},
+    "data": [
+        {% for row in result.data %}
+            {
+                "id": "{{ row.0 }}",
+                "name": "{{ row.1 }}",
+                "categoryId": "{{ row.2}}",
+                "quantity": "{{ row.3 }}",
+                "price": "{{ row.4 }}"
+            }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]   
+}

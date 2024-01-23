@@ -1,0 +1,27 @@
+{
+    "total": {{ result.length }},
+    "count": {{ result.rows }},
+    "data": [
+        {% for row in result.data %}
+            {
+                "id": "{{ row.0 }}",
+                "company": {
+                    "name": "{{ row.1 }}",
+                    "address": {
+                        "streetAddress": "{{ row.4}}",
+                        "city": "{{ row.5 }}",
+                        "postalCode": "{{ row.6 }}",
+                        "country": "{{ row.7 }}"
+                    },
+                    "phone": "{{ row.8 }}"{% if row.9 %},
+                    "fax": "{{ row.9 }}"
+                    {% endif %}
+                },
+                "contact":{
+                     "name": "{{ row.2 }}",
+                     "title": "{{ row.3 }}"
+                }
+            }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]   
+}

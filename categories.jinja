@@ -1,0 +1,13 @@
+{
+    "total": {{ result.length }},
+    "count": {{ result.rows }},
+    "data": [
+        {% for row in result.data %}
+            {
+                "id": "{{ row.0 }}",
+                "name": "{{ row.1 }}",
+                "description": "{{ row.2 }}"
+            }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]   
+}

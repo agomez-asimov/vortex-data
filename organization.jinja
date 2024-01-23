@@ -1,0 +1,8 @@
+[
+    {% for row in result.data %}
+    {
+        "employee": "{{ row.0 }}",
+        "reportsTo": "{{ row.1 }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor%}
+]
